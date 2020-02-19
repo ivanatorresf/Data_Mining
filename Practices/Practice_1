@@ -33,6 +33,6 @@ for(i in rnorm(range)){
   
 }
 
-verdadero <- (verdadero / rango) *100
-falso <- (falso / rango) *100
+true <- (true / range) *100
+false <- (false / range) *100
 
