@@ -14,3 +14,25 @@ Hint:
 4. Check if the iterated variable falls
 5. Increase counter if the condition is true
 6. return a result <- counter / N
+
+------------------------------------------------------------------------------------------------------------------------------
+
+rm(exp, false, i, n, number, true)
+exp <- 68.2
+true <- 0
+false <- 0
+n <- 0
+range <- 100000
+for(i in rnorm(range)){
+  n <- n +1
+  if(i < 1 & i > -1){
+    true <- true + 1
+  }else{
+    false<- false + 1
+  }
+  
+}
+
+verdadero <- (verdadero / rango) *100
+falso <- (falso / rango) *100
+
