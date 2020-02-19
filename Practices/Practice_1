@@ -25,14 +25,5 @@ n <- 0
 range <- 100000
 for(i in rnorm(range)){
   n <- n +1
-  if(i < 1 & i > -1){
-    true <- true + 1
-  }else{
-    false<- false + 1
-  }
-  
-}
 
-true <- (true / range) *100
-false <- (false / range) *100
 
