@@ -57,7 +57,7 @@ profit.margin
 #Calculate The Mean Profit After Tax For The 12 Months
 mean_pat <- _(profit.after.tax)
 mean_pat
-
+------------------------------------------------------------------------
 #Find The Months With Above-Mean Profit After Tax
 good.months <- _ _ mean_pat
 good.months
