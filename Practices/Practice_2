@@ -19,3 +19,102 @@ median(10,na.rm = FALSE)
 diff(45, lag=1)
 
 rep(1:3, 2)
+
+
+###########################################################################
+#Trabajando con Matrices en R
+#Para crear una matriz en R se utiliza la función
+
+#matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)
+#donde matrix() corresponde al nombre de la función y todo lo que está dentro de los paréntesis son los argumentos de dicha 
+función.
+
+#1
+ A<-matrix(c(5, 7, 13, 4, 1, 7, 14, 3, 11), nrow=3, ncol=3, byrow=F,
++dimnames=list(c("Blanco", "Negro", "Rojo"), c("Toyota", "Audi", "Nissan")))
+
+#2
+#Agregando Filas y Columnas a una matriz: funciones rbind y cbind
+#Para agregar una fila a una matriz ya existente como en el caso de la matriz A creada en el ejemplo anterior, 
+#se debe utilizar la función rbind() y se usará la función cbind() para añadir columnas a una matriz. 
+#Como ejemplo agregaremos un nuevo color a la matriz A, con lo cual se debe entender que se agregará una 
+#fila más debajo de Rojo la cual llamaremos Azul y contendrá los valores 8, 5, 7. 
+#Con lo cual haremos:
+
+Azul<-c(8,5,7) # con esto creamos el vector Azul con sus correspondientes elementos
+
+A<-rbind(A, Azul)
+
+#3
+#Ahora agregaremos a esa misma matriz A, una nueva columna llamada Hyundai y contendrá los siguientes valores 2, 7, 3, 5
+Hyundai<-c(2,7,3,5) #con esto creamos el vector Hyundai con sus correspondientes elementos
+
+A<-cbind(A,Hyundai)
+
+#4
+#Seleccionando elementos de una matriz.
+#Los elementos de una matriz están indexados con dos índices lo cual hace que resulte fácil acceder a los elementos 
+#y trabajar con ellos si lo que nos interesa es sólo una parte de la información contenida en una matriz y no la matriz 
+#entera,esto se logra con el operador de indexación [i, j] donde i es el elemento fila y j es el elemento columna, 
+#esto es así porque si A es una matriz, entonces sus elementos serán $a_{i,j}$, de manera que si quisiéramos seleccionar
+#el número de automóviles blancos correspondiente a la marca Audi podríamos hacerlo de dos maneras:
+
+#-Escribimos el nombre de la matriz y luego entre corchetes la ubicación siendo [nombre de fila, nombre de columna],
+#los nombres deberán ir entre comillas.
+A["Blanco", "Audi"] 
+[1] 7
+
+#6
+#-Escribimos el nombre de la matriz y luego entre corchetes la ubicación siendo [número de fila, número de columna]
+#En la segunda orden lo que se indica a R es que me muestre el elemento que ocupa la posición (1,2), es decir,
+#aquél elemento que está en la fila 1 y columna 2.
+A[1,2]
+[1] 7
+#7
+#También se pueden seleccionar vectores enteros, vamos a seleccionar todos los vehículos correspondientes al color blanco,
+#para ello lo que le debemos pedir a R es que nos seleccione y muestre todos los elementos que están en la fila 1, 
+#esto se hace así:
+A[1,]                   # otra forma de hacerlo es 
+A["Blanco",] 
+#8
+#Eliminando filas y columnas
+#Ya hemos visto cómo se agregan filas y columnas a una matriz ya existente, pero a veces es útil también eliminarlas 
+#y así de fácil como es agregar así de fácil es eliminar también.
+#A continuación vamos a eliminar la fila y la columna que agregamos en el parte 5 y 6 del ejercicio anterior, 
+#es decir, vamos a eliminar la fila Verde y la columna Kia.
+#Para eliminar filas o columnas hay que tener en cuenta la forma de indexar Matrices, aquí hay un documento que 
+#explica muy bien esto.
+
+#Eliminando la columna Kia
+A<-A[ ,-5]
+A<-A[ ,-"Kia"]
+Eliminando la fila Verde
+A<-A[-5,]
+A<-A[-"Verde",]
+#También se pudo haber eliminado de una sola vez  
+A<-A[-5,-5] ó 
+A<-A[-"Verde",-"Kia"]
+            
+#9
+#Transponer una Matriz
+#Una función muy útil es la transposición de matrices, como ya se había mencionado anteriormente en Introducción 
+#a las funciones básicas de R: Funciones con Vectores, la función t() es para transponer tanto vectores como matrices, 
+#en este caso la usaremos para transponer la matriz A que hemos creado y editado a lo largo de toda esta página.
+
+#Matriz A
+print(A)
+#Transpuesta de A
+t(A)
+#10
+
+#Suma y resta de matrices
+#Dos matrices son conformables para la suma y resta si son de la misma dimensión, teniendo esto en mente, en R podemos 
+#fácilmente sumar y restar matrices indicando la suma con + y la resta con –
+#A continuación le sumaremos a la matriz A de nuestro ejemplo anterior su transpuesta y luego a la matriz A le restaremos
+#su transpuesta.
+
+A + t(A)
+A+t(A) 
+
+A - t(A)
+ A-t(A)
