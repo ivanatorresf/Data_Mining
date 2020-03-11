@@ -462,4 +462,41 @@ Class Session
        #Part 3 - Player Style Patterns Excluding Free Throws
        myplot((FieldGoals-FreeTrows)/Points)
 ```
+### &nbsp;&nbsp;Practice 5.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
+       1.Filter countries by Low income
+       2.Filter countries by Lower middle income
+       3.Filter countries by Upper middle income
+       4.Filter by countrie Malta
+       5.Filter by countrie Qatar
+       6.Filter by countrie Netherlands
+       7.Filter by countrie Norway
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Code.
+
+       1.Filter countries by Low income
+       filter <- stats$Income.Group == "Low income"
+       stats[filter,]
+       
+       2.Filter countries by Lower middle income
+       filter <- stats$Income.Group == "Lower middle income"
+       stats[filter,]
+       
+       3.Filter countries by Upper middle income
+       stats[stats$Country.Name == "Upper middle income",]
+       
+       4.Filter by countrie Malta
+       stats[stats$Country.Name == "Malta",]
+       
+       5.Filter by countrie Qatar
+       stats[stats$Country.Name == "Qatar",]
+       
+       6.Filter by countrie Netherlands
+       stats[stats$Country.Name == "Netherlands",]
+       
+       7.Filter by countrie Norway
+       stats[stats$Country.Name == "Norway",]
+
+
 
