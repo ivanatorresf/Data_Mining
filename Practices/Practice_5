@@ -1,0 +1,13 @@
+1.Filter countries by Low income
+   filter <- stats$Income.Group == "Low income"
+   stats[filter,]
+   
+   2.Filter countries by Lower middle income
+   filter <- stats$Income.Group == "Lower middle income"
+   stats[filter,]
+   
+   3.Filter countries by Upper middle income
+   stats[stats$Country.Name == "Upper middle income",]
+   
+   4.Filter by countrie Malta
+   stats[stats$Country.Name == "Malta",]
