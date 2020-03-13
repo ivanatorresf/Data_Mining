@@ -11,3 +11,12 @@
    
    4.Filter by countrie Malta
    stats[stats$Country.Name == "Malta",]
+   
+     5.Filter by countrie Qatar
+   stats[stats$Country.Name == "Qatar",]
+   
+   6.Filter by countrie Netherlands
+   stats[stats$Country.Name == "Netherlands",]
+   
+   7.Filter by countrie Norway
+   stats[stats$Country.Name == "Norway",]
