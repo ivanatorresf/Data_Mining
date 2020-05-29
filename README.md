@@ -308,7 +308,7 @@ classifier = glm(formula = Purchased ~ .,
 
 
 
-### &nbsp;&nbsp;Exam.
+### &nbsp;&nbsp;Exam 2.
 
 #### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
        Develop the following problem with R and RStudio for the knowledge extraction that the problem requires.
