@@ -470,4 +470,10 @@ plot.title allows us to modify the title of the graph
 Class Session
 ![R Studio]https://github.com/ivanatorresf/Data_Mining/blob/unidad_2/Captura%20de%20pantalla%20-2020-05-29%2010-51-35.png
 
+We can see the action genre is the one with the largest number of movies and having many movies has the highest budget invested budget
+The other thing that can be observed is that in genres like adventure and drama they have few movies, animated movies have more than; like adventure and drama but it has a lower budget percentage than the other genres on the chart, and the comedy genre is at an average percentage
+
+
+Fox of all the studies is the one that produces fewer movies,Buena Vista Studios STUDIO IS THE ONE THAT INVESTES MORE IN THE FILMS BUDGET FOLLOWING WB,Buena VISTA sTUDIOS produces more animated films than others,Universal has all genres but focuses more on the comedy genre
+
 
