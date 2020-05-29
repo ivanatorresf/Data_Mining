@@ -28,7 +28,7 @@ Class Session
 &nbsp;&nbsp;&nbsp;[Homework 1](#[Homework-1)  
 &nbsp;&nbsp;&nbsp;[Homework 2](#[Homework-2)  
 &nbsp;&nbsp;&nbsp;[Homework 3 ](#[Homework-3)  
-&nbsp;&nbsp;&nbsp;[Exam 2]      #[Exam-2)   
+&nbsp;&nbsp;&nbsp;[Exam 2](#[Exam-2)  
 
 
 
