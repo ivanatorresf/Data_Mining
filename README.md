@@ -12,6 +12,8 @@ Class Session
 ### <p align="center">  Maestro: Jose Christian Romero Hernandez	</p>
 ### <p align="center">  No. de control y nombre del alumno:  </p>
 ### <p align="center">  No. de control y nombre del alumno:16210585 - Valenzuela Rosales Marco Asael </p>
+### <p align="center">  No. de control y nombre del alumno:13210388 - Ivan Adrian Torres Flores </p>
+
 
 
 # Unit 1
@@ -22,6 +24,12 @@ Class Session
 &nbsp;&nbsp;&nbsp;[Practice 3](#practice-3)  
 &nbsp;&nbsp;&nbsp;[Practice 4](#Practice-4)  
 &nbsp;&nbsp;&nbsp;[Practice 5](#practice-5)  
+
+&nbsp;&nbsp;&nbsp;[Homework 1](#[Homework 1)  
+&nbsp;&nbsp;&nbsp;[Homework 2](#[Homework 2)  
+&nbsp;&nbsp;&nbsp;[Homework 3](#[Homework 3)  
+
+
 
 
 ### &nbsp;&nbsp;Practice 1.
@@ -35,23 +43,37 @@ Class Session
        
 #### &nbsp;&nbsp;&nbsp;&nbsp; Code.
 ```
-    expX <- 0
-    n <- 0
-      numInRange <- 0
-      # rounding expX to 4 decimal place
-    while (round(expX, 4) != 0.6820) { # Create a while loop to stop when E(X) is 68.2%
-     n <- n + 1 # Counting total number generated
-     value <- rnorm(1) # Generate new random number
-    if (value >= -1 & value <= 1) { # check if within range
-    numInRange <- numInRange + 1 # if within range, increment count 
-     }
-     expX <- numInRange / n # Calculate expected X
-      display <- paste("Current expected X : ", expX)
-      print(display) # Print out current expected X while computing
-      }
+ 1.working directory
+ getwd()
+  setwd("/home/marco/Escritorio/DataMining-master/MachineLearning/SimpleLinearRegression")
+  getwd()
 
-    # print out the n needed to reached 68.2
-    print(n)
+2.We import the data set in which we will work
+  dataset <- read.csv('Salary_Data.csv')
+
+3.We install the Library caTools
+Install.packages('caTools)
+library(caTools
+
+4 Splitting the dataset into the Training set and Test set
+set.seed(123)
+split <- sample.split(dataset$Extent, SplitRatio = 2/3)
+training_set <- subset(dataset, split == TRUE)
+test_set <- subset(dataset, split == FALSE)
+
+Set the seed of R‘s random number generator, which is useful for creating simulations or random objects that can be reproduced.
+    sample.split() is used to split the data used during classification into train and test subsets. The following arguments are used:
+
+        Variable with the dataset (dataset) + $ + name of the column to predict (Extent).
+        SplitRatio = ratio for dividing the data.
+            For example in SplitRatio = 2/3, it means 1/3 of the data will be used for tests and 2/3 for training.
+
+    subset() its a function that allows to select variables and observations. The following arguments are used:
+
+        Variable with the dataset (dataset).
+        Condition to be met (split == TRUE).
+            In this case, this is where the data that was separated with the previous function will be assigned to the training set.
+
 ```
 
 ### &nbsp;&nbsp;Practice 2.
