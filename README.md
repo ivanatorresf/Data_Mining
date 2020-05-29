@@ -391,6 +391,8 @@ leyenda.text allows us to modify the text of the legends
 plot.title allows us to modify the title of the graph
 
 
-
+# RStudio
+Class Session
+![R Studio]https://github.com/ivanatorresf/Data_Mining/blob/unidad_2/Captura%20de%20pantalla%20-2020-05-29%2010-51-35.png
 
 
