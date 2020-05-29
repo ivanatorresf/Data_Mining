@@ -577,6 +577,8 @@ These data are added to create the graph
        between 50 and 60 but with a fertility rate range of 5 to 8
        
 
+Class Session ![R Studio]https://github.com/ivanatorresf/Data_Mining/blob/unidad_1/Exxam1.png
 
+Class Session ![R Studio]https://github.com/ivanatorresf/Data_Mining/blob/unidad_1/exam1.1.png
 
 
