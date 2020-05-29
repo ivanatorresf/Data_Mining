@@ -25,9 +25,9 @@ Class Session
 &nbsp;&nbsp;&nbsp;[Practice 4](#Practice-4)  
 &nbsp;&nbsp;&nbsp;[Practice 5](#practice-5)  
 
-&nbsp;&nbsp;&nbsp;[Homework 1](#[Homework 1 Main Types of Machine Learning Algorithms.)  
-&nbsp;&nbsp;&nbsp;[Homework 2](#[Homework 2 VectorAssembler Library)  
-&nbsp;&nbsp;&nbsp;[Homework 3 ](#[Homework 3 Pipeline and Confusion Matrix)  
+&nbsp;&nbsp;&nbsp;[Homework 1](#[Homework 1)  
+&nbsp;&nbsp;&nbsp;[Homework 2](#[Homework 2)  
+&nbsp;&nbsp;&nbsp;[Homework 3 ](#[Homework 3)  
 &nbsp;&nbsp;&nbsp;[Exam] (#Exam) 
 
 
