@@ -27,6 +27,9 @@ Class Session
 &nbsp;&nbsp;&nbsp;[HomeWork 1](#[Homework-1)  
 &nbsp;&nbsp;&nbsp;[HomeWork 2](#[Homework-2)  
 &nbsp;&nbsp;&nbsp;[HomeWork 3 ](#[Homework-3)  
+&nbsp;&nbsp;&nbsp;[HomeWork 4](#[Homework-4)  
+&nbsp;&nbsp;&nbsp;[HomeWork 5](#[Homework-5)  
+&nbsp;&nbsp;&nbsp;[HomeWork 6](#[Homework-6)  
 &nbsp;&nbsp;&nbsp;[Exam 2](#[Exam-2)  
 
 
@@ -221,99 +224,159 @@ classifier = glm(formula = Purchased ~ .,
     scale is generic function whose default method centers and/or scales the columns of a numeric matrix.
     It is used to transform, give scala meaning to data, and help make the algorithm lighter; in this case we indicate that we want to apply the changes to all the columns except the prediction column.
 
-### &nbsp;&nbsp;HomeWork 1 Main Types of Machine Learning Algorithms.
-
-       Machine Learning came a long way from a science fiction fancy to a reliable and diverse business tool that amplifies multiple elements of the business operation.
-       Its influence on business performance may be so significant that the implementation of machine learning algorithms is required to maintain competitiveness in many fields and industries.
-       The implementation of machine learning into business operations is a strategic step and requires a lot of resources. Therefore, it's important to understand what do you want the ML to do for your particular business and what kind of perks different types of ML algorithms bring to the table. 
-
-       Machine learning algorithms can divide into three broad categories: supervised learning, unsupervised learning, and reinforcement learning. Supervised learning is useful in cases where a property (label) is available for a specific set of data, but must be predicted for other instances. Unsupervised learning is useful in cases where the challenge is to discover implicit relationships in an unlabelled dataset (elements are not previously assigned). Reinforcement learning falls between these two extremes: there is some form of feedback available for each step or predictive action, but there is no precise label or error message.
-
-       SUPERVISED LEARNING
-
-       1. Decision trees: A decision tree is a decision support tool that uses a graph or model similar to a decision tree and its possible consequences, including the results of fortuitous events, resource costs, and utility . They have an appearance like this:
- # Decision Trees
-Class Session
-![Learning]https://github.com/ivanatorresf/Data_Mining/blob/unidad_2/Arbol.png
-       
-       
-
-          From a business decision-making point of view, a decision tree is the minimum number of yes / no questions that one has to ask, to assess the probability of making a correct decision, most of the time. This method allows you to approach the problem in a structured and systematic way to reach a logical conclusion.
-
-
-
-
-       2. Naïve Bayes Classification: Naïve Bayes classifiers are a family of simple probabilistic classifiers based on the application of Bayes ‘theorem with strong (Naïve) assumptions of independence between characteristics’. The featured image is the equation - with P (A | B) being posterior probability, P (B | A) being probability, P (A) being class prior probability, and P (B) being prior probability predictor.
+### &nbsp;&nbsp;HomeWork 1 
+       It is based on the Grammar of Graphics by Leland Wilkinson and is the most used package for producing graphics in R. This tells you that ggplot2 is worth the effort of learning. So let’s get you started with it!
+       ggplot2 consists of the following elements:
+       Essential Elements
+       Data
+       The data element is the data set itself
+       Aesthetics
+       The data is being mapped onto the aesthetics element (variables mapped to x or y position and aesthetics attributes such as color, shape, or size)
+       Geometries
+       This element determines how our data is being displayed (bars, points, lines)
+       Every single plot that you will ever make consists of these three essential elements.
+       Optional
+       Facets
+       Facetting splits the data into subsets and displays the same graph for every subset.
+       Statistics
+       Let’s you transform our data (add mean, median, quartile)
+       Coordinates
+       Transforms axes (changes spacing of displayed data)
+       Themes
+       Let’s you change the graphics background, axis size, or header.
+       This grammar is useful for both the user and the developer of statistical graphics. For the user, it makes it easier to iteratively update a plot, changing a single feature at a time. The grammar is also useful because it suggests the high-level aspects of a plot that can be changed, giving us a framework to think about graphics, and hopefully shortening the distance from mind to paper. It also encourages the use of graphics customized to a particular problem rather than relying on generic named graphics.
 
 
-       3. Ordinary Least Squares Regression: If you've been in contact with statistics, you've probably heard of linear regression before. Ordinary Least Squares Regression is a method of performing linear regression. Linear regression can be thought of as the task of fitting a straight line through a set of points. There are several possible strategies for doing this, and the "ordinary least squares" strategy goes like this: you can draw a line and then, for each of the data points, measure the vertical distance between the point and the line and add them together; The fitted line would be the one in which this sum of distances is as small as possible.
-# Ordinary Least Squares Regression
-Class Session
-![Learning]https://github.com/ivanatorresf/Data_Mining/blob/unidad_2/Regresion.png
 
-       4. Logistic Regression: Logistic regression is a powerful statistical way to model a binomial result with one or more explanatory variables. Measure the relationship between the categorical dependent variable and one or more independent variables by estimating the probabilities using a logistic function, which is the cumulative logistic distribution.
-       
-# Logistic Regression
-Class Session
-![Learning] https://github.com/ivanatorresf/Data_Mining/blob/unidad_2/Regresion.png   
+
+       Example 
+       Let us use a Pokemon data set from Kaggle to pick up some ggplot2 knowledge.
+       str(poke)
+       'data.frame':	800 obs. of  13 variables:
+        $ X.        : int  1 2 3 3 4 5 6 6 6 7 ...
+        $ Name      : Factor w/ 800 levels "Abomasnow","AbomasnowMega Abomasnow",..: 81 330 746 747 103 104 100 101 102 666 ...
+        $ Type.1    : Factor w/ 18 levels "Bug","Dark","Dragon",..: 10 10 10 10 7 7 7 7 7 18 ...
+        $ Type.2    : Factor w/ 19 levels "","Bug","Dark",..: 15 15 15 15 1 1 9 4 9 1 ...
+        $ Total     : int  318 405 525 625 309 405 534 634 634 314 ...
+        $ HP        : int  45 60 80 80 39 58 78 78 78 44 ...
+        $ Attack    : int  49 62 82 100 52 64 84 130 104 48 ...
+        $ Defense   : int  49 63 83 123 43 58 78 111 78 65 ...
+        $ Sp..Atk   : int  65 80 100 122 60 80 109 130 159 50 ...
+        $ Sp..Def   : int  65 80 100 120 50 65 85 85 115 64 ...
+        $ Speed     : int  45 60 80 80 65 80 100 100 100 43 ...
+        $ Generation: int  1 1 1 1 1 1 1 1 1 1 ...
+        $ Legendary : Factor w/ 2 levels "False","True": 1 1 1 1 1 1 1 1 1 1 ...
+
+
+
+       gplot2 plots are objects which means that you can assign them. If we would display the plot now then we wouldn’t see anything yet because we have not specified the geometric element yet. The first argument in ggplot() is the data frame. In the second argument,  we map the data onto the x-axis and y-axis with the aesthetics element.
+       We have two continuous variables with Attack and Defense. Hence, a scatterplot would be appropriate.
+       You can create a scatter plot by adding the geom_point() function to our existing object, atk_vs_def. This would look like this:
+
+
 
 
 ### &nbsp;&nbsp;HomeWork 2 VectorAssembler Library
-       VectorAssembler is a transformer that combines a given list of columns into a single vector column. It is useful for combining raw features and features generated by different feature transformers into a single feature vector, in order to train ML models like logistic regression and decision trees. VectorAssembler accepts the following input column types: all numeric types, boolean type, and vector type. In each row, the values of the input columns will be concatenated into a vector in the specified order.
-       Examples
-       Assume that we have a DataFrame with the columns id, hour, mobile, userFeatures, and clicked:
-        id | hour | mobile | userFeatures     | clicked
-       ----|------|--------|------------------|---------
-        0  | 18   | 1.0    | [0.0, 10.0, 0.5] | 1.0
-       userFeatures is a vector column that contains three user features. We want to combine hour, mobile, and userFeatures into a single feature vector called features and use it to predict clicked or not. If we set VectorAssembler’s input columns to hour, mobile, and userFeatures and output column to features, after transformation we should get the following DataFrame:
-        id | hour | mobile | userFeatures     | clicked | features
-       ----|------|--------|------------------|---------|-----------------------------
-        0  | 18   | 1.0    | [0.0, 10.0, 0.5] | 1.0     | [18.0, 1.0, 0.0, 10.0, 0.5]
+       Geom_Jitter()
+       The jitter geom is a convenient shortcut for geom_point(position = "jitter"). It adds a small amount of random variation to the location of each point, and is a useful way of handling overplotting caused by discreteness in smaller datasets.
+       Examples 
+       geom_jitter(
+         mapping = NULL,
+         data = NULL,
+         stat = "identity",
+         position = "jitter",
+         ...,
+         width = NULL,
+         height = NULL,
+         na.rm = FALSE,
+         show.legend = NA,
+         inherit.aes = TRUE
+       )
 
-       Vectors Library
+    Arguments
+       mapping	
+       Set of aesthetic mappings created by aes() or aes_(). If specified and inherit.aes = TRUE (the default), it is combined with the default mapping at the top level of the plot. You must supply mapping if there is no plot mapping.
 
-       Factory methods for org.apache.spark.ml.linalg.Vector. We don't use the name Vector because Scala imports scala.collection.immutable.Vector by default.
+       data	
+       The data to be displayed in this layer. There are three options:
 
+       If NULL, the default, the data is inherited from the plot data as specified in the call to ggplot().
 
+       A data.frame, or other object, will override the plot data. All objects will be fortified to produce a data frame. See fortify() for which variables will be created.
 
-### &nbsp;&nbsp;HomeWork3 Pipeline and Confusion Matrix.
-       Main concepts in Pipelines
-       MLlib standardizes APIs for machine learning algorithms to make it easier to combine multiple algorithms into a single pipeline, or workflow. This section covers the key concepts introduced by the Pipelines API, where the pipeline concept is mostly inspired by the scikit-learn project.
-           • DataFrame: This ML API uses DataFrame from Spark SQL as an ML dataset, which can hold a variety of data types. E.g., a DataFrame could have different columns storing text, feature vectors, true labels, and predictions.
-           • Transformer: A Transformer is an algorithm which can transform one DataFrame into another DataFrame. E.g., an ML model is a Transformer which transforms a DataFrame with features into a DataFrame with predictions.
-           • Estimator: An Estimator is an algorithm which can be fit on a DataFrame to produce a Transformer. E.g., a learning algorithm is an Estimator which trains on a DataFrame and produces a model.
-           • Pipeline: A Pipeline chains multiple Transformers and Estimators together to specify an ML workflow.
-           • Parameter: All Transformers and Estimators now share a common API for specifying parameters.
-       Pipeline components
-       Transformers
+       A function will be called with a single argument, the plot data. The return value must be a data.frame, and will be used as the layer data. A function can be created from a formula (e.g. ~ head(.x, 10)).
 
-       A Transformer is an abstraction that includes feature transformers and learned models. Technically, a Transformer implements a method transform(), which converts one DataFrame into another, generally by appending one or more columns. For example:
-
-           A feature transformer might take a DataFrame, read a column (e.g., text), map it into a new column (e.g., feature vectors), and output a new DataFrame with the mapped column appended.
-           A learning model might take a DataFrame, read the column containing feature vectors, predict the label for each feature vector, and output a new DataFrame with predicted labels appended as a column.
-
-       Estimators
-
-       An Estimator abstracts the concept of a learning algorithm or any algorithm that fits or trains on data. Technically, an Estimator implements a method fit(), which accepts a DataFrame and produces a Model, which is a Transformer. For example, a learning algorithm such as LogisticRegression is an Estimator, and calling fit() trains a LogisticRegressionModel, which is a Model and hence a Transformer.
-       Properties of pipeline components
-
-       Transformer.transform()s and Estimator.fit()s are both stateless. In the future, stateful algorithms may be supported via alternative concepts.
-
-       Each instance of a Transformer or Estimator has a unique ID, which is useful in specifying parameters (discussed below).
-       Pipeline
-
-       In machine learning, it is common to run a sequence of algorithms to process and learn from data. E.g., a simple text document processing workflow might include several stages:
-
-           1.     Split each document’s text into words.
-           2.     Convert each document’s words into a numerical feature vector.
-           3.     Learn a prediction model using the feature vectors and labels.
-
-       MLlib represents such a workflow as a Pipeline, which consists of a sequence of PipelineStages (Transformers and Estimators) to be run in a specific order. We will use this simple workflow as a running example in this section.
-       How it works
-
-       A Pipeline is specified as a sequence of stages, and each stage is either a Transformer or an Estimator. These stages are run in order, and the input DataFrame is transformed as it passes through each stage. For Transformer stages, the transform() method is called on the DataFrame. For Estimator stages, the fit() method is called to produce a Transformer (which becomes part of the PipelineModel, or fitted Pipeline), and that Transformer’s transform() method is called on the DataFrame.
+       stat	
+       The statistical transformation to use on the data for this layer, as a string.
 
 
+
+### &nbsp;&nbsp;HomeWork 3.
+       What is a p-value?
+       In statistics, the p-value is the probability of obtaining results as extreme as the observed results of a statistical hypothesis test, assuming that the null hypothesis is correct. The p-value is used as an alternative to rejection points to provide the smallest level of significance at which the null hypothesis would be rejected. A smaller p-value means that there is stronger evidence in favor of the alternative hypothesis.
+       How Is P-Value Calculated?
+       P-values are calculated using p-value tables or spreadsheets/statistical software. Because different researchers use different levels of significance when examining a question, a reader may sometimes have difficulty comparing results from two different tests. P-values provide a solution to this problem.
+
+       For example, if a study comparing returns from two particular assets were undertaken using by different researchers who used the same data but different significance levels, the researchers might come to opposite conclusions regarding whether the assets differ.
+
+### &nbsp;&nbsp;HomeWork 4.
+       lm()
+       lm is used to fit linear models. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance (although aov may provide a more convenient interface for these).
+
+       Keywords
+       Regression
+       Usage
+       lm(formula, data, subset, weights, na.action,
+          method = "qr", model = TRUE, x = FALSE, y = FALSE, qr = TRUE,
+          singular.ok = TRUE, contrasts = NULL, offset, …)
+       Arguments
+       formula
+       an object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted. The details of model specification are given under ‘Details’.
+
+       data
+       an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which lm is called.
+
+       subset
+       an optional vector specifying a subset of observations to be used in the fitting process.
+
+       weights
+       an optional vector of weights to be used in the fitting process. Should be NULL or a numeric vector. If non-NULL, weighted least squares is used with weights weights (that is, minimizing sum(w*e^2)); otherwise ordinary least squares is used. See also ‘Details’,
+
+### &nbsp;&nbsp;HomeWork 5.
+       glm()
+       Fitting Generalized Linear Models
+       glm is used to fit generalized linear models, specified by giving a symbolic description of the linear predictor and a description of the error distribution.
+       Keywords
+       models, regression
+       Usage
+       glm(formula, family = gaussian, data, weights, subset,
+           na.action, start = NULL, etastart, mustart, offset,
+           control = list(…), model = TRUE, method = "glm.fit",
+           x = FALSE, y = TRUE, singular.ok = TRUE, contrasts = NULL, …)
+       glm.fit(x, y, weights = rep(1, nobs),
+               start = NULL, etastart = NULL, mustart = NULL,
+               offset = rep(0, nobs), family = gaussian(),
+               control = list(), intercept = TRUE, singular.ok = TRUE)
+
+       # S3 method for glm
+       weights(object, type = c("prior", "working"), …)
+
+
+
+
+
+       Arguments
+       formula
+       an object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted. The details of model specification are given under ‘Details’.
+
+       family
+       a description of the error distribution and link function to be used in the model. For glm this can be a character string naming a family function, a family function or the result of a call to a family function. For glm.fit only the third option is supported. (See family for details of famil  y functions.)
+       
+       
+### &nbsp;&nbsp;HomeWork 6.
+
+       The package ‘ElemStatLearn’ was removed from the CRAN repository, although formerly available versions can be obtained from the archive.
+       This library contents Data Sets, Functions and Examples from the Book: "The Elements of Statistical Learning, Data Mining, Inference, and Prediction" by Trevor Hastie, Robert Tibshirani and Jerome Friedman.
 
 
 ### &nbsp;&nbsp;Exam 2.
