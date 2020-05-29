@@ -24,8 +24,7 @@ Class Session
 &nbsp;&nbsp;&nbsp;[Practice 3](#practice-3)  
 &nbsp;&nbsp;&nbsp;[Practice 4](#Practice-4)  
 &nbsp;&nbsp;&nbsp;[Practice 5](#practice-5)  
-
-&nbsp;&nbsp;&nbsp;[HomeWork 1](#[Homework-1)  
+&nbsp;&nbsp;&nbsp;[HomeWork 1 Main Types of Machine Learning Algorithms.](#[Homework-1 Main Types of Machine Learning Algorithms.)  
 &nbsp;&nbsp;&nbsp;[HomeWork 2](#[Homework-2)  
 &nbsp;&nbsp;&nbsp;[HomeWork 3 ](#[Homework-3)  
 &nbsp;&nbsp;&nbsp;[Exam 2](#[Exam-2)  
