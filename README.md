@@ -390,9 +390,7 @@ legend.title allows us to modify the titles of the legend of the graph that in t
 leyenda.text allows us to modify the text of the legends
 plot.title allows us to modify the title of the graph
 
-# RStudio
-Class Session
-![R Studio](Captura de pantalla -2020-05-29 10-51-35.png)
+
 
 
 
