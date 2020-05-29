@@ -233,7 +233,9 @@ classifier = glm(formula = Purchased ~ .,
        SUPERVISED LEARNING
 
        1. Decision trees: A decision tree is a decision support tool that uses a graph or model similar to a decision tree and its possible consequences, including the results of fortuitous events, resource costs, and utility . They have an appearance like this:
-
+ # Decision Trees
+Class Session
+![Learning]https://github.com/ivanatorresf/Data_Mining/blob/unidad_2/Arbol.png
        
        
 
@@ -246,8 +248,15 @@ classifier = glm(formula = Purchased ~ .,
 
 
        3. Ordinary Least Squares Regression: If you've been in contact with statistics, you've probably heard of linear regression before. Ordinary Least Squares Regression is a method of performing linear regression. Linear regression can be thought of as the task of fitting a straight line through a set of points. There are several possible strategies for doing this, and the "ordinary least squares" strategy goes like this: you can draw a line and then, for each of the data points, measure the vertical distance between the point and the line and add them together; The fitted line would be the one in which this sum of distances is as small as possible.
+# Ordinary Least Squares Regression
+Class Session
+![Learning]https://github.com/ivanatorresf/Data_Mining/blob/unidad_2/Regresion.png
 
        4. Logistic Regression: Logistic regression is a powerful statistical way to model a binomial result with one or more explanatory variables. Measure the relationship between the categorical dependent variable and one or more independent variables by estimating the probabilities using a logistic function, which is the cumulative logistic distribution.
+       
+# Logistic Regression
+Class Session
+![Learning] https://github.com/ivanatorresf/Data_Mining/blob/unidad_2/Regresion.png   
 
 
 ### &nbsp;&nbsp;HomeWork 2 VectorAssembler Library
@@ -316,6 +325,10 @@ classifier = glm(formula = Purchased ~ .,
        Description
        The directors of the movie review website are very happy with their previous delivery and now they have a new requirement for you.
        The previous consultant had created a chart for them that is illustrated in the following image.
+       
+ # RStudio
+Class Session
+![R Studio]https://github.com/ivanatorresf/Data_Mining/blob/unidad_2/Captura%20de%20pantalla%20-2020-05-29%2011-18-50.png
 
 
        However, the R code used to create the graph has been lost and cannot be recovered.
