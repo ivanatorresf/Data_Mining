@@ -28,3 +28,78 @@ Set the seed of R‘s random number generator, which is useful for creating simu
         Variable with the dataset (dataset).
         Condition to be met (split == TRUE).
             In this case, this is where the data that was separated with the previous function will be assigned to the training set.
+========================================================================================================================================
+5.Fitting Simple Linear Regression to the Training set
+regressor = lm(formula = Salary ~ YearsExperience,
+               data = dataset)
+summary(regressor)
+
+lm () is used to fit linear models. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance (although aov may provide a more convenient interface for these).
+Usage
+lm(formula, data, subset, weights, na.action,
+   method = "qr", model = TRUE, x = FALSE, y = FALSE, qr = TRUE,
+   singular.ok = TRUE, contrasts = NULL, offset, …)
+summary() is a generic function used to produce result summaries of the results of various model fitting functions. The function invokes particular methods which depend on the class of the first argument.
+
+Call:
+lm(formula = Salary ~ YearsExperience, data = dataset)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7958.0 -4088.5  -459.9  3372.6 11448.0 
+
+Coefficients:
+                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      25792.2     2273.1   11.35 5.51e-12 ***
+YearsExperience   9450.0      378.8   24.95  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 5788 on 28 degrees of freedom
+Multiple R-squared:  0.957,     Adjusted R-squared:  0.9554 
+F-statistic: 622.5 on 1 and 28 DF,  p-value: < 2.2e-16
+
+> 
+
+
+
+6. Predicting the Test set results
+
+y_pred = predict(regressor, newdata = test_set)
+
+    predict() is a generic function for predictions from the results of various model fitting functions. The following arguments are used:
+
+        object: a model object for which prediction is desired (regressor).
+        ...: additional arguments affecting the predictions produced. In this case the test variables are sent to make the predictions (newdata = test_set).
+
+7.We initialize the library library(ggplot2)
+
+8. Visualising the Training set results
+
+ggplot() +
+  geom_point(aes(x = training_set$Year, y = training_set$Extent),
+             color = 'green') +
+  geom_line(aes(x = training_set$Year, y = predict(regressor, newdata = training_set)),
+            color = 'red') +
+  ggtitle('Extent vs Year (Training Set)') +
+  xlab('Year') +
+  ylab('Extent') 
+
+
+
+
+    ggplot() initializes a ggplot object. It can be used to declare the input data frame for a graphic and to specify the set of plot aesthetics intended to be common throughout all subsequent layers unless specifically overridden.
+    geom_point is used to create scatterplots. The scatterplot is most useful for displaying the relationship between two continuous variables.
+    aes() describe how variables in the data are mapped to visual properties (aesthetics) of geoms. The following arguments are used:
+
+        x: assigning values to the x axis (training_set$Year).
+        y: assigning values to the y axis (training_set$Extent).
+        color: assign color to the figures on the graph.
+
+    geom_line connects the observations in order of the variable on the x axis.
+    gg_title is used to assign the name of the graphic ('Extent vs Year (Training Set)').
+    xlab is used to name the data represented on the x axis ('Year').
+    ylab is used to name the data represented on the y axis ('Extent').
+    
+    ![Grafica1](https://drive.google.com/file/d/13noFwePKcOBQZBslvRV89N4n1AM7IKkk/view)
+    
