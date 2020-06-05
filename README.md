@@ -379,7 +379,7 @@ classifier = glm(formula = Purchased ~ .,
        This library contents Data Sets, Functions and Examples from the Book: "The Elements of Statistical Learning, Data Mining, Inference, and Prediction" by Trevor Hastie, Robert Tibshirani and Jerome Friedman.
 
 
-### &nbsp;&nbsp;Exam 2.
+### &nbsp;&nbsp;Exam_1.
 
 #### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
        Develop the following problem with R and RStudio for the knowledge extraction that the problem requires.
@@ -431,7 +431,7 @@ df.dataset = dataset[(dataset$Genre == "action"|dataset$Genre == "adventure"
 
 ## library(ggplot2)
 
- ` We load the ggplot2 library to be able to make the graph.
+  We load the ggplot2 library to be able to make the graph.
 
 
 ## ggplot(df.dataset, aes(x = Genre, y = Gross_US)) + 
@@ -465,15 +465,77 @@ legend.title allows us to modify the titles of the legend of the graph that in t
 leyenda.text allows us to modify the text of the legends
 plot.title allows us to modify the title of the graph
 
-
 # RStudio
-Class Session
-![R Studio]https://github.com/ivanatorresf/Data_Mining/blob/unidad_2/Captura%20de%20pantalla%20-2020-05-29%2010-51-35.png
+       Class Session
+       ![R Studio]https://github.com/ivanatorresf/Data_Mining/blob/unidad_2/Captura%20de%20pantalla%20-2020-05-29%2010-51-35.png
 
-We can see the action genre is the one with the largest number of movies and having many movies has the highest budget invested budget
-The other thing that can be observed is that in genres like adventure and drama they have few movies, animated movies have more than; like adventure and drama but it has a lower budget percentage than the other genres on the chart, and the comedy genre is at an average percentage
-
-
-Fox of all the studies is the one that produces fewer movies,Buena Vista Studios STUDIO IS THE ONE THAT INVESTES MORE IN THE FILMS BUDGET FOLLOWING WB,Buena VISTA sTUDIOS produces more animated films than others,Universal has all genres but focuses more on the comedy genre
+       We can see the action genre is the one with the largest number of movies and having many movies has the highest budget invested budget
+       The other thing that can be observed is that in genres like adventure and drama they have few movies, animated movies have more than; like adventure and drama but it has a lower budget percentage than the other genres on the chart, and the comedy genre is at an average percentage
 
 
+       Fox of all the studies is the one that produces fewer movies,Buena Vista Studios STUDIO IS THE ONE THAT INVESTES MORE IN THE FILMS BUDGET FOLLOWING WB,Buena VISTA sTUDIOS produces more animated films than others,Universal has all genres but focuses more on the comedy genre
+
+### &nbsp;&nbsp;Exam_2.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
+#### &nbsp;&nbsp;&nbsp;&nbsp; Code.
+# install.packages("naivebayes")
+# library(e1071)
+# library(naivebayes)
+# library(caret)
+
+getwd()
+setwd("/home/marco/Escritorio/DataMining-master/Datasets")
+getwd()
+
+
+dataset <- read.csv('Social_Network_Ads.csv')
+
+dataset$User.ID <- NULL
+dataset$Age <- as.factor(dataset$Age)
+dataset$EstimatedSalary <- as.factor(dataset$EstimatedSalary)
+dataset$Purchased <- as.factor(dataset$Purchased)
+
+
+set.seed(123)
+t.ids<-createDataPartition(dataset$Purchased, p= 0.60, list = F)
+mod<- naiveBayes(Purchased ~., data= dataset[t.ids,])
+mod
+mod$levels <- NULL
+
+pred <- predict(mod, dataset[-t.ids,])
+tab <- table(dataset[-t.ids,]$Purchased, pred, dnn = c("Actual", "Prediccion"))
+confusionMatrix(tab)
+
+
+`Explication Exam Code 
+How about classmates we are back with another example in Rstudio with my partner ivan torres, in this video we will explain
+the naibbayes algorithm, before starting to specify that we could achieve this exercise thanks to Juan Gabriel Gomila for his
+explanation, we were able to understand a little more the naibayes algorithm
+
+before starting with the code we must install the naivebayes library can be done by installing the e1071 library that
+contains it and the naivebayes library and we save a little more time and also install the caret library
+It includes a series of functions that facilitate the use of dozens of complex classification and regression methods. 
+using this package instead of the original functions of the methods has advantages which are
+
+It is easier to put into practice some usual procedures in classification problems. For example, there are specific 
+functions to divide the sample into training data and test data or to adjust parameters by cross-validation.
+
+Let's run the libraries so that they are activated to implement them
+I do not know if they can see when running the caret package it also runs the lattice and ggplot2 package without
+us needing to run it, one thing before is that the caret library takes several minutes to install for everything it contains.
+
+Then we will use the getwwd to see what route we are on with the setwd we put the route we will be working on and 
+we run getwd again to see that if we are on the route we specify
+Then we will load the dataset using read.csv that will serve to load our data file
+
+the moment we started with the code we found that some errors were marked and we did not know the source of the error, 
+until we decided to see what happened when deleting one of the columns that we would not occupy in this case it would
+be the id since we would not occupy it in the implementation of the algorithm and how it is a specific number for the 
+person would not serve us
+
+Another error that we found was that all the values ​​or arguments had to be equal, for this we found a way to convert 
+the data to a factor and so they were all the same.We have our dataset using the sign of weights that we know is to be
+able to relate it to the information. that we occupy, with the function as.factor then in parentheses we put our dataset
+with Age that is age and thus makes it a factor
+`
