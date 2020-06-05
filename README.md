@@ -539,3 +539,37 @@ the data to a factor and so they were all the same.We have our dataset using the
 able to relate it to the information. that we occupy, with the function as.factor then in parentheses we put our dataset
 with Age that is age and thus makes it a factor
 `
+WHAT IS NAIVE BAYES
+Naive Bayes models are a special class of Automatic Learning, or Machine Learning, classification algorithms, as we will refer from now on. They are based on a statistical classification technique called "Bayes' theorem".
+
+These models are called “Naive” algorithms, or “Innocents” in Spanish. They assume that the predictor variables are independent of each other.
+These provide an easy way to build models with very good behavior due to their simplicity.
+
+Well we started training with the data and we are going to train the model with naive bayes
+in the line we place the seed with set.seed (123)
+
+then we will create the training set with t.ids ← createpartition and between paracentesis we put our dataset Purchased weight sign which is what we want to predict with probability = 0.60 and as a list we put in False format so that it gives us in array format
+
+and then we will use our model on the line with mod and using the naive bayes function LET'S SEE HERE WE HAVE TO USE THE E1071 PACKAGE
+
+and then when trying to predict the variable that is Purchased based on all the previous dataframe ep taking only the indices of the traind ids and all the columns
+
+well now we are going to train the model and we see that it has 4 variables
+and with mod we can see it
+WHAT IS NAIVE BAYES
+Naive Bayes models are a special class of Automatic Learning, or Machine Learning, classification algorithms, as we will refer from now on. They are based on a statistical classification technique called "Bayes' theorem".
+
+These models are called “Naive” algorithms, or “Innocents” in Spanish. They assume that the predictor variables are independent of each other.
+These provide an easy way to build models with very good behavior due to their simplicity.
+
+Well we started training with the data and we are going to train the model with naive bayes
+in the line we place the seed with set.seed (123)
+
+then we will create the training set with t.ids ← createpartition and between paracentesis we put our dataset Purchased weight sign which is what we want to predict with probability = 0.60 and as a list we put in False format so that it gives us in array format
+
+and then we will use our model on the line with mod and using the naive bayes function LET'S SEE HERE WE HAVE TO USE THE E1071 PACKAGE
+
+and then when trying to predict the variable that is Purchased based on all the previous dataframe ep taking only the indices of the traind ids and all the columns
+
+well now we are going to train the model and we see that it has 4 variables
+and with mod we can see it
