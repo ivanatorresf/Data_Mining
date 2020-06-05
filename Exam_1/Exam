@@ -1,0 +1,75 @@
+getwd()
+setwd("/home/marco/Escritorio/DataMining-master/Datasets")
+getwd()
+
+
+dataset <- read.csv('Project-Data.csv')
+
+
+
+colnames(dataset) <- c("DayWeek", "Director","Genre","MovieTitle", "Release", 
+                       "Studio", "AdjustGross","BudgetMillions", "GrossMillions","IMDbRating",
+                       "MovieLensRating","OverseasMillions", "Overseas_%","ProfitMillions",
+                       "Profit%", "RuntimeMin","UsMillions", "Gross_US")
+
+head(dataset)
+
+df.dataset = dataset[(dataset$Genre == "action"|dataset$Genre == "adventure"
+                    |dataset$Genre == "animation"|dataset$Genre == "comedy"
+                    |dataset$Genre == "drama")&(dataset$Studio == "Buena Vista Studios"
+                    |dataset$Studio == "Fox"|dataset$Studio == "Paramount Pictures"
+                    |dataset$Studio == "Sony"|dataset$Studio == "Universal"
+                    |dataset$Studio == "WB"),]
+df.dataset
+
+library(ggplot2)
+
+
+ggplot(df.dataset, aes(x = Genre, y = Gross_US)) + 
+  geom_jitter(aes(color = Studio, size = BudgetMillions)) + 
+  geom_boxplot(alpha = 0.5) + 
+  geom_smooth(method = "loess", formula = y ~ x) + 
+  xlab("Genre") + ylab("Gross % US") + 
+  ggtitle("Domestic Gross % by Genre") + 
+  theme(axis.title.x = element_text(color = "black",size = 9,family = "Serif"),
+        axis.title.y = element_text(color = "black",size = 9,family = "Serif"),
+        axis.text.x = element_text(family = "Serif", size = 9),
+        axis.text.y = element_text(family = "Serif",size = 9),
+        legend.title = element_text(family = "Serif",size = 15),
+        legend.text = element_text(family = "Serif"),
+        plot.title = element_text(color = "black",size = 9,hjust = 0.5,family = "Serif"))
+        
+Explication Code Exam 
+We load the ggplot2 library to be able to make the graph.
+ The ggplot function is used for data that is used to make the graph, as well as for each axis (x that will be = Gender is the gross profit of the films
+
+ The geom_jitter function is used to graph the data as points, it helps us to disperse the points and the data can be better observed, the color for study and the size of the points for the BUDGET of the films are specified
+
+Specifically, another type of graph that is geom_boxplot is in charge of creating the box graphs, the alpha argument is used to see how transparent the box looks, we put it below so that it helps us visualize the points of the other graph
+loess () is used for less than 1,000 observations
+
+ xlab and ylab are used to specify the names of each axis in the graph.
+ The ggtitle function allows you to assign a name to our graph.
+
+ The theme function is used to modify labels, headings, and font styles.
+ axis.title helps us modify the titles of our x and y axes, axis.text must use the element_text function to be able to make changes to the values:
+
+        Color: color
+        Font size: size
+        Typeface: family
+        The type of font
+
+ legend.title allows us to modify the titles of the legend of the graph that in this serious case and BullegMillionsl needs to use the element_text function, as in the previous cases.
+    leyenda.text allows us to modify the text of the legends
+    plot.title allows us to modify the title of the graph
+
+We can see the action genre is the one with the largest number of movies and having many movies has the highest budget invested budget
+The other thing that can be observed is that in genres like adventure and drama they have few movies, animated movies have more than; like adventure and drama but it has a lower budget percentage than the other genres on the chart, and the comedy genre is at an average percentage
+
+
+Of the Buena Vista studios STUDIO IS THE ONE THAT INVESTES MORE IN THE BUDGET OF FILMS FOLLOWING IT WB
+Buena VISTA sTUDIOS produces more animated films than others
+Universal has all genres but focuses more on the comedy genre
+WB like Universal has in the other genres but focuses more on action movies
+Fox of all the studies is the one that produces fewer movies
+
