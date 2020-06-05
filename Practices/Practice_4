@@ -1,0 +1,188 @@
+1.working directory
+getwd()
+setwd("/home/marco/Escritorio/DataMining-master/MachineLearning/LogisticRegression")
+getwd()
+
+
+2.We import the data set in which we will work
+dataset <- read.csv('Social_Network_Ads.csv')
+dataset <- dataset[, 3:5]
+
+
+3. Splitting the dataset into the Training set and Test set
+
+library(caTools)
+set.seed(123)
+split <- sample.split(dataset$Purchased, SplitRatio = 0.75) 
+training_set <- subset(dataset, split == TRUE)
+test_set <- subset(dataset, split == FALSE)
+
+    A 'seed' is used to randomize data selection during data division (75% for training and 25% for testing).
+
+4. Feature scaling
+
+training_set[, 1:2] <- scale(training_set[, 1:2])
+test_set[, 1:2] <- scale(test_set[, 1:2])
+
+    scale is generic function whose default method centers and/or scales the columns of a numeric matrix.
+    In other words, scale is used to transform (to base logarithm e) and give a scaled meaning to the data to be used, in this case we indicate that we only want to apply the changes to columns 1 and 2 ([, 1:2]).
+
+5. Fitting Logistic Regression to Training set
+
+classifier = glm(formula = Purchased ~ .,
+                 family = binomial,
+                 data = training_set)
+
+    glm is used to fit generalized linear models, specified by giving a symbolic description of the linear predictor and a description of the error distribution.
+
+
+
+
+
+
+
+
+6. Predicting the Test set results
+
+prob_pred = predict(classifier, type = 'response', newdata = test_set[-3])
+prob_pred
+
+y_pred = ifelse(prob_pred > 0.5, 1, 0)
+y_pred
+
+    predict is a generic function for predictions from the results of various model fitting functions.
+    To make the prediction we need to call the classifier created in the previous step, which contains the object for which we want to make the prediction.
+    The type of prediction, in this case response, is also specified so that the scale adjusts to that of the response variable.
+    And finally, it indicates where the variables will be obtained with which the prediction will be made, in this case all the test_set except column 3 (test_set[-3]).
+    In other words, predict calculates the probabilities of a prediction, in this case how likely is the result to be equal to 1 or 0.
+
+    ifelse returns a value with the same shape as test which is filled with elements selected from either yes or no depending on whether the element of test is TRUE or FALSE.
+==============================================================================================================================================================================
+7. Making the Confusion Matrix
+
+cm = table(test_set[, 3], y_pred)
+cm
+
+    table uses the cross-classifying factors to build a contingency table of the counts at each combination of factor levels.
+    In this case we use the table function to perform the confusion matrix of the predictions made by the model, thus obtaining the total number of predictions that are really true, and how many are false; for this we will need the data from the third column of the test_set (test_set[, 3]) and the prediction data (y_pred).
+
+8. Use ggplot2 library
+
+ Training Set
+
+library(ggplot2)
+ggplot(training_set, aes(x=EstimatedSalary, y=Purchased)) + geom_point() + 
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)
+
+
+
+![Grafica4](https://drive.google.com/open?id=1bqiJzy5iRYWGa6pmeIMXZI8iPOWZu5rh)
+
+
+
+ggplot(training_set, aes(x=Age, y=Purchased)) + geom_point() + 
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)
+
+ Test Set
+
+
+
+![Grafica5](https://drive.google.com/open?id=1cBmd3YaJb3XSUHThxa2A12Y60XuV19gU)
+
+
+
+ggplot(test_set, aes(x=EstimatedSalary, y=Purchased)) + geom_point() + 
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)
+
+
+
+![Grafica6](https://drive.google.com/open?id=17krl-4QeHx3zMd6Znr5jOyQfb0JZDypr)
+
+
+
+ggplot(test_set, aes(x=Age, y=Purchased)) + geom_point() + 
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)
+
+
+
+![Grafica7](https://drive.google.com/open?id=1r_fqAjJZbewGKq2c5HD2xzexK5uQ3eai)
+
+
+
+9. Visualization using the ElemStatLearn library E Install ElemStatLearn
+
+install.packages('ElemStatLearn') 
+manual mode. Go to this URL https://cran.r-project.org/src/contrib/Archive/ElemStatLearn/
+Download with the latest date 2019-08-12 09:20	12M
+
+    Visualization the Training Set results
+
+library(ElemStatLearn)
+set = training_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+prob_set = predict(classifier, type = 'response', newdata = grid_set)
+y_grid = ifelse(prob_set > 0.5, 1, 0)
+plot(set[, -3],
+     main = 'Logistic Regression (Training set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+
+    The variable set is created to save the training data.
+    Variables X1 and X2 are created using the seq function.
+
+        seq is a standard generic with a default method for generating regular sequences.
+        The start (min) and end (max) values are placed, as well as the sequence increment number (by).
+
+xpand.grid; this function is used to create a data frame from all the combinations of the vectors or factors provided (X1, X2).
+Names are assigned to the columns of the grid (Age and EstimatedSalary).
+
+    The ifelse function is used again to save and print the predictions whose probabilities are greater than 0.5, 1 and 0.
+    Plot is used, a generic function of R to plot/graph, which specifies:
+
+        The data to use (columns 1 and 2 of the set).
+        The title of the graph (main).
+        The titles of the axes (xlab, ylab).
+        The limits of the axes (xlim, ylim).
+
+    The contour function is used to add a contour line to the previous diagram / graph; it specifies:
+
+        The positions of the line (X1, X2).
+        The values to be graphed, in this case the matrix function was used with the y_grid data, which is used to create a matrix from the given data.
+        The limits for the values of the graph, in this case using the length function of X1 and X2.
+        add, a logical function to add to the graph those values that are TRUE.
+
+    Points, a generic function, is used to draw a sequence of points at the specified coordinates. The following arguments are specified for this:
+
+        The data (grid_set).
+        pch the symbol or character to use, for example '.' corresponds to a 0.01 inch rectangle per side.
+        The colors to use (col); in this case, if the ifelse conditional is true (y_grid == 1), the color is equal to springgreen3 and if not equal to tomato.
+
+
+![Grafica8](https://drive.google.com/open?id=1BTr7pEocZIjmf3c8Ol9ToRoMItsCSTD0)
+
+    Visualising the Test Set results
+
+library(ElemStatLearn)
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+prob_set = predict(classifier, type = 'response', newdata = grid_set)
+y_grid = ifelse(prob_set > 0.5, 1, 0)
+plot(set[, -3],
+     main = 'Logistic Regression (Test set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+
+
+![Grafica9](https://drive.google.com/open?id=1rswFvluRPLwHa5pFRSqTL1-_b5Ps3I1v)

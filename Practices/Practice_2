@@ -1,0 +1,79 @@
+1.working directory
+getwd()
+setwd("/home/marco/Escritorio/DataMining-master/MachineLearning/MultipleLinearRegression")
+getwd()
+
+2.We import the data set in which we will work
+dataset <- read.csv('50_Startups.csv')
+
+# Encoding categorical data 
+dataset$State = factor(dataset$State,
+                       levels = c('New York', 'California', 'Florida'),
+                       labels = c(1,2,3))
+3. Encoding categorical data
+
+dataset$State = factor(dataset$State,
+                       levels = c('New York', 'California', 'Florida'),
+                       labels = c(1,2,3))
+
+4.We install the Library caTools
+Install.packages('caTools)
+library(caTools)
+5. Splitting the dataset into the Training set and Test set
+
+set.seed(123)
+split <- sample.split(dataset$Profit, SplitRatio = 0.8)
+training_set <- subset(dataset, split == TRUE)
+test_set <- subset(dataset, split == FALSE)
+
+    set.seed() allows us to create a 'seed' for generating random data during tests with the data set.
+    sample.split() is used to split the data set into training and test subsets.
+=============================================================================================================================
+6. Fitting Multiple Linear Regression to the Training set
+
+regressor = lm(formula = Profit ~ R.D.Spend,
+               data = dataset)
+summary(regressor)  
+
+   
+    lm() is used to fit linear models. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance.
+    summary() is a generic function used to produce result summaries of the results of various model fitting functions.
+
+
+
+
+
+ 8.Predicting the Test set results
+
+y_pred = predict(regressor, newdata = test_set) 
+
+    predict() is a generic function for predictions from the results of various model fitting functions.
+    The second argument newdata specifies which dataset we want to implement our trained model on and predict the results of the new dataset. Here, we have taken the test_set on which we want to implement our model.
+
+9.Visualising the Training set results
+
+library(ggplot2)
+ggplot() +
+  geom_point(aes(x=training_set$R.D.Spend, y=training_set$Profit),
+             color = 'limegreen', size=2) +
+  geom_line(aes(x = training_set$R.D.Spend, y = predict(regressor, newdata = training_set)),
+            color = 'black') +
+  ggtitle('Profit vs R.D.Spend (Training Set)') +
+  xlab('R.D.Spend') +
+  ylab('Profit')
+
+    ggplot() initializes a ggplot object. It can be used to declare the input data frame for a graphic and to specify the set of plot aesthetics intended to be common throughout all subsequent layers unless specifically overridden.
+    geom_point is used to create scatterplots. The scatterplot is most useful for displaying the relationship between two continuous variables.
+    aes() describe how variables in the data are mapped to visual properties (aesthetics) of geoms.
+    
+9. Visualising the Test set results
+
+ggplot() +
+  geom_point(aes(x=test_set$R.D.Spend, y=test_set$Profit),
+             color = 'forestgreen', size=2) +
+  geom_line(aes(x = training_set$R.D.Spend, y = predict(regressor, newdata = training_set)),
+            color = 'black') +
+  ggtitle('Profit vs R.D.Spend (Test Set)') +
+  xlab('R.D.Spend') +
+  ylab('Profit')
+  ![Big Data](https://drive.google.com/file/d/1QuRVSMVoacF9D27a1-kZMUXBWeegHavm/view)
