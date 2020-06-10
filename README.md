@@ -5,7 +5,8 @@ Class Session
 
 # Big-Data  
 
-### <p align="center" > TECNOLÓGICO NACIONAL DE MÉXICO INSTITUTO TECNOLÓGICO DE TIJUANA SUBDIRECCIÓN ACADÉMICA DEPARTAMENTO DE SISTEMAS Y COMPUTACIÓN PERIODO: Enero - Junio 2020 </p>
+### <p align="center" > TECNOLÓGICO NACIONAL DE MÉXICO  INSTITUTO TECNOLÓGICO DE TIJUANA SUBDIRECCIÓN ACADÉMICA DEPARTAMENTO DE SISTEMAS Y COMPUTACIÓN DEPARTAMENTO DE SISTEMAS Y COMPUTACIÓN </p>
+### <p align="center"> Enero - Junio 2020 </p>
 
 ###  <p align="center">  Ing. En Sistemas Computacionales. 	Datos Masivos (BDD-1704 IF9A	).</p>
 
