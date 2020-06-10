@@ -20,22 +20,26 @@ Class Session
 
 ## Index
 &nbsp;&nbsp;&nbsp;[Exam](#[Exam)  
+### &nbsp;&nbsp;Exam.
 #### &nbsp;&nbsp;&nbsp;&nbsp; Instruccions.
-```Desarrolle el siguiente problema con R y RStudio para la extracción de conocimiento
-que el problema require.
-Implementar el modelo de agrupación K-Means con el conjunto de datos Iris.csv que
-se encuentra en https://github.com/jcromerohdz/iris utilizando el metodo
-kmeans() en R. Una vez que se obtenga el modelo de agrupamiento hacer el analis
-de visualización de datos correspondiente.
-Al finalizar el desarrollo explicar detalladamente en consiste el modelo de
-agrupación K-Means y cuales fueron sus observacines en analisis de visualización de
-datos.
-Instrucciones de evaluación
-- Tiempo de entrega 4 dias
-- Al terminar poner el codigo y la explicación en el branch correspondiete de su
-github asi mismo realizar su explicación de la solución en su google drive.
-- Finalmente defender su desarrollo en un video de 8-10 min el cual servira para dar
-su calificación, este video debe subirse a youtube para ser compartido por un link.
+```
+Develop the following problem with R and RStudio for knowledge extraction
+that the problem requires.
+Implement the K-Means grouping model with the Iris.csv dataset that
+found at https://github.com/jcromerohdz/iris using the method
+kmeans () in R. Once the grouping model is obtained, do the analysis
+corresponding data display.
+At the end of the development, explain in detail the model of
+K-Means group and what were their observations in visualization analysis of
+data.
+Assessment instructions
+- Delivery time 4 days
+- At the end put the code and the explanation in the corresponding branch of your
+github also make its explanation of the solution on your google drive.
+- Finally defend its development in a video of 8-10 min which will serve to give
+Your rating, this video must be uploaded to YouTube to be shared by a link.
+
+
 ```
 #### &nbsp;&nbsp;&nbsp;&nbsp; Code
 getwd()
